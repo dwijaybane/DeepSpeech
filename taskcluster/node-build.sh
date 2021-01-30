@@ -2,8 +2,10 @@
 
 set -xe
 
-source $(dirname "$0")/../tc-tests-utils.sh
+package_option=$1
 
-source ${DS_ROOT_TASK}/DeepSpeech/tf/tc-vars.sh
+source $(dirname "$0")/tc-tests-utils.sh
 
-do_deepspeech_npm_package
+source $(dirname "$0")/tf_tc-vars.sh
+
+do_deepspeech_npm_package "${package_option}"

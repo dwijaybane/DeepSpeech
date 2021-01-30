@@ -30,7 +30,7 @@
 
 #include "diy-fp.h"
 
-namespace double_conversion {
+namespace kenlm_double_conversion {
 
 // We assume that doubles and uint64_t have the same endianness.
 static uint64_t double_to_uint64(double d) { return BitCast<uint64_t>(d); }
@@ -99,7 +99,7 @@ class Double {
   }
 
   double PreviousDouble() const {
-    if (d64_ == (kInfinity | kSignMask)) return -Double::Infinity();
+    if (d64_ == (kInfinity | kSignMask)) return -Infinity();
     if (Sign() < 0) {
       return Double(d64_ + 1).value();
     } else {
@@ -256,6 +256,8 @@ class Double {
     return (significand & kSignificandMask) |
         (biased_exponent << kPhysicalSignificandSize);
   }
+
+  DISALLOW_COPY_AND_ASSIGN(Double);
 };
 
 class Single {
@@ -391,8 +393,10 @@ class Single {
   static const uint32_t kNaN = 0x7FC00000;
 
   const uint32_t d32_;
+
+  DISALLOW_COPY_AND_ASSIGN(Single);
 };
 
-}  // namespace double_conversion
+}  // namespace kenlm_double_conversion
 
 #endif  // DOUBLE_CONVERSION_DOUBLE_H_

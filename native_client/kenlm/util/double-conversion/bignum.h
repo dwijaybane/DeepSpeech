@@ -30,7 +30,7 @@
 
 #include "utils.h"
 
-namespace double_conversion {
+namespace kenlm_double_conversion {
 
 class Bignum {
  public:
@@ -49,7 +49,6 @@ class Bignum {
 
   void AssignPowerUInt16(uint16_t base, int exponent);
 
-  void AddUInt16(uint16_t operand);
   void AddUInt64(uint64_t operand);
   void AddBignum(const Bignum& other);
   // Precondition: this >= other.
@@ -140,6 +139,6 @@ class Bignum {
   DISALLOW_COPY_AND_ASSIGN(Bignum);
 };
 
-}  // namespace double_conversion
+}  // namespace kenlm_double_conversion
 
 #endif  // DOUBLE_CONVERSION_BIGNUM_H_
